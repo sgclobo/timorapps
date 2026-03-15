@@ -1,0 +1,1721 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TimorApps — Mobile Apps from Timor-Leste</title>
+    <meta
+      name="description"
+      content="Beautiful, useful mobile apps built in Timor-Leste. Available on iOS and Android."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="icon"
+      type="image/png"
+      href="icons/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="icons/favicon.svg" />
+    <link rel="shortcut icon" href="icons/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="icons/apple-touch-icon.png"
+    />
+    <meta name="apple-mobile-web-app-title" content="TimorDijital" />
+    <link rel="manifest" href="icons/site.webmanifest" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --sun: #f5a623;
+        --sun-light: #fde8c0;
+        --coral: #e8604c;
+        --teal: #2a9d8f;
+        --teal-light: #d4f0ec;
+        --night: #1a1a2e;
+        --warm-bg: #fdfaf5;
+        --warm-mid: #f5efe0;
+        --text: #2c2416;
+        --text-muted: #7a6e5f;
+        --white: #ffffff;
+        --radius: 20px;
+        --shadow: 0 8px 40px rgba(26, 26, 46, 0.1);
+        --shadow-card: 0 4px 24px rgba(26, 26, 46, 0.08);
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: var(--warm-bg);
+        color: var(--text);
+        overflow-x: hidden;
+      }
+
+      /* ── LANGUAGE SWITCHER ── */
+      .lang-bar {
+        background: var(--night);
+        padding: 8px 24px;
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .lang-btn {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        color: rgba(255, 255, 255, 0.7);
+        padding: 4px 14px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-family: "DM Sans", sans-serif;
+        cursor: pointer;
+        transition: all 0.2s;
+        letter-spacing: 0.05em;
+      }
+      .lang-btn.active,
+      .lang-btn:hover {
+        background: var(--sun);
+        border-color: var(--sun);
+        color: var(--night);
+        font-weight: 600;
+      }
+
+      /* ── NAV ── */
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 5%;
+        background: var(--warm-bg);
+        border-bottom: 1px solid var(--warm-mid);
+      }
+      .nav-logo {
+        font-family: "Fraunces", serif;
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--night);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .nav-logo .logo-dot {
+        width: 10px;
+        height: 10px;
+        background: var(--sun);
+        border-radius: 50%;
+        display: inline-block;
+      }
+      .nav-links {
+        display: flex;
+        gap: 32px;
+        list-style: none;
+      }
+      .nav-links a {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+      .nav-links a:hover {
+        color: var(--coral);
+      }
+
+      /* ── HERO ── */
+      .hero {
+        padding: 80px 5% 60px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--sun-light);
+        color: #8b5e0a;
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+      .hero-badge .flag {
+        font-size: 16px;
+      }
+      .hero h1 {
+        font-family: "Fraunces", serif;
+        font-size: clamp(40px, 5vw, 64px);
+        font-weight: 700;
+        line-height: 1.1;
+        color: var(--night);
+        margin-bottom: 20px;
+      }
+      .hero h1 em {
+        font-style: italic;
+        color: var(--coral);
+      }
+      .hero p {
+        font-size: 17px;
+        line-height: 1.7;
+        color: var(--text-muted);
+        margin-bottom: 36px;
+        max-width: 460px;
+      }
+      .hero-cta {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .btn-primary {
+        background: var(--coral);
+        color: white;
+        padding: 14px 28px;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 15px;
+        text-decoration: none;
+        transition: all 0.25s;
+        box-shadow: 0 4px 20px rgba(232, 96, 76, 0.35);
+        display: inline-block;
+      }
+      .btn-primary:hover {
+        background: #d4503c;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 28px rgba(232, 96, 76, 0.4);
+      }
+      .btn-secondary {
+        background: transparent;
+        color: var(--text);
+        padding: 14px 28px;
+        border-radius: 50px;
+        font-weight: 500;
+        font-size: 15px;
+        text-decoration: none;
+        border: 2px solid var(--warm-mid);
+        transition: all 0.25s;
+      }
+      .btn-secondary:hover {
+        border-color: var(--teal);
+        color: var(--teal);
+      }
+
+      /* Hero visual */
+      .hero-visual {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      }
+      .hero-phones {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 12px;
+        transform: perspective(800px) rotateY(-8deg) rotateX(3deg);
+      }
+      .phone-card {
+        background: white;
+        border-radius: 18px;
+        padding: 16px 12px;
+        box-shadow: var(--shadow-card);
+        text-align: center;
+        animation: floatCard 4s ease-in-out infinite;
+      }
+      .phone-card:nth-child(2) {
+        animation-delay: 0.8s;
+        margin-top: 20px;
+      }
+      .phone-card:nth-child(3) {
+        animation-delay: 1.6s;
+      }
+      .phone-card .app-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 26px;
+        margin: 0 auto 10px;
+      }
+      .phone-card .app-name {
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--night);
+        line-height: 1.3;
+      }
+      @keyframes floatCard {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+
+      /* ── STATS ── */
+      .stats-bar {
+        background: var(--night);
+        padding: 28px 5%;
+      }
+      .stats-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-around;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      .stat {
+        text-align: center;
+        color: white;
+      }
+      .stat-num {
+        font-family: "Fraunces", serif;
+        font-size: 36px;
+        font-weight: 700;
+        color: var(--sun);
+        display: block;
+      }
+      .stat-label {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.6);
+        margin-top: 4px;
+      }
+
+      /* ── APPS SECTION ── */
+      .apps-section {
+        padding: 80px 5%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .section-header {
+        text-align: center;
+        margin-bottom: 56px;
+      }
+      .section-tag {
+        display: inline-block;
+        background: var(--teal-light);
+        color: var(--teal);
+        padding: 5px 16px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+      }
+      .section-header h2 {
+        font-family: "Fraunces", serif;
+        font-size: clamp(28px, 4vw, 44px);
+        font-weight: 700;
+        color: var(--night);
+        margin-bottom: 14px;
+      }
+      .section-header p {
+        font-size: 16px;
+        color: var(--text-muted);
+        max-width: 520px;
+        margin: 0 auto;
+        line-height: 1.7;
+      }
+
+      /* App Cards Grid */
+      .apps-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 28px;
+      }
+      .app-card {
+        background: white;
+        border-radius: var(--radius);
+        padding: 32px;
+        box-shadow: var(--shadow-card);
+        transition: all 0.3s;
+        border: 2px solid transparent;
+        position: relative;
+        overflow: hidden;
+      }
+      .app-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--card-accent, var(--sun));
+        border-radius: 4px 4px 0 0;
+      }
+      .app-card:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--shadow);
+        border-color: var(--card-accent, var(--sun));
+      }
+      .app-card-header {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        margin-bottom: 18px;
+      }
+      .app-icon-large {
+        width: 64px;
+        height: 64px;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+        flex-shrink: 0;
+      }
+      .app-card-title {
+        flex: 1;
+      }
+      .app-card-title h3 {
+        font-family: "Fraunces", serif;
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--night);
+        margin-bottom: 4px;
+      }
+      .app-card-title .app-category {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+      .app-card p {
+        font-size: 14px;
+        line-height: 1.7;
+        color: var(--text-muted);
+        margin-bottom: 20px;
+      }
+      .app-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 24px;
+      }
+      .tag {
+        background: var(--warm-mid);
+        color: var(--text-muted);
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 500;
+      }
+      .app-actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .store-btn {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 9px 16px;
+        border-radius: 10px;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.2s;
+      }
+      .store-btn.apple {
+        background: var(--night);
+        color: white;
+      }
+      .store-btn.google {
+        background: var(--teal);
+        color: white;
+      }
+      .store-btn.coming {
+        background: var(--warm-mid);
+        color: var(--text-muted);
+        cursor: default;
+      }
+      .store-btn:not(.coming):hover {
+        opacity: 0.85;
+        transform: translateY(-1px);
+      }
+      .store-btn svg {
+        width: 16px;
+        height: 16px;
+        fill: currentColor;
+      }
+
+      /* ── ABOUT SECTION ── */
+      .about-section {
+        background: var(--warm-mid);
+        padding: 80px 5%;
+      }
+      .about-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+      }
+      .about-content h2 {
+        font-family: "Fraunces", serif;
+        font-size: clamp(28px, 3.5vw, 40px);
+        font-weight: 700;
+        color: var(--night);
+        margin-bottom: 20px;
+        line-height: 1.2;
+      }
+      .about-content p {
+        font-size: 16px;
+        line-height: 1.8;
+        color: var(--text-muted);
+        margin-bottom: 16px;
+      }
+      .about-values {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin-top: 32px;
+      }
+      .value-item {
+        background: white;
+        border-radius: 14px;
+        padding: 20px;
+        box-shadow: var(--shadow-card);
+      }
+      .value-item .value-icon {
+        font-size: 28px;
+        margin-bottom: 10px;
+      }
+      .value-item h4 {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--night);
+        margin-bottom: 6px;
+      }
+      .value-item p {
+        font-size: 13px;
+        color: var(--text-muted);
+        line-height: 1.5;
+        margin: 0;
+      }
+      .about-map {
+        background: white;
+        border-radius: var(--radius);
+        padding: 40px;
+        box-shadow: var(--shadow);
+        text-align: center;
+      }
+      .timor-outline {
+        font-size: 100px;
+        display: block;
+        margin-bottom: 20px;
+        animation: pulse 3s ease-in-out infinite;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+      }
+      .about-map h3 {
+        font-family: "Fraunces", serif;
+        font-size: 22px;
+        color: var(--night);
+        margin-bottom: 10px;
+      }
+      .about-map p {
+        font-size: 14px;
+        color: var(--text-muted);
+        line-height: 1.7;
+      }
+
+      /* ── PRIVACY SECTION ── */
+      .privacy-section {
+        padding: 80px 5%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .privacy-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 24px;
+        margin-top: 48px;
+      }
+      .privacy-card {
+        background: white;
+        border-radius: 16px;
+        padding: 28px;
+        box-shadow: var(--shadow-card);
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+      }
+      .privacy-icon {
+        width: 48px;
+        height: 48px;
+        background: var(--teal-light);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        flex-shrink: 0;
+      }
+      .privacy-card h4 {
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--night);
+        margin-bottom: 6px;
+      }
+      .privacy-card p {
+        font-size: 13px;
+        color: var(--text-muted);
+        line-height: 1.6;
+      }
+
+      /* ── CONTACT SECTION ── */
+      .contact-section {
+        background: var(--night);
+        padding: 80px 5%;
+        text-align: center;
+      }
+      .contact-inner {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .contact-section h2 {
+        font-family: "Fraunces", serif;
+        font-size: clamp(28px, 4vw, 42px);
+        color: white;
+        margin-bottom: 16px;
+      }
+      .contact-section p {
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.6);
+        margin-bottom: 36px;
+        line-height: 1.7;
+      }
+      .contact-email {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--sun);
+        color: var(--night);
+        padding: 16px 32px;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 16px;
+        text-decoration: none;
+        transition: all 0.25s;
+        box-shadow: 0 4px 24px rgba(245, 166, 35, 0.4);
+      }
+      .contact-email:hover {
+        background: #e8971a;
+        transform: translateY(-2px);
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        background: #0f0f1e;
+        padding: 40px 5%;
+        text-align: center;
+      }
+      .footer-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .footer-logo {
+        font-family: "Fraunces", serif;
+        font-size: 20px;
+        color: white;
+        margin-bottom: 12px;
+      }
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 24px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+      }
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.5);
+        text-decoration: none;
+        font-size: 13px;
+        transition: color 0.2s;
+      }
+      .footer-links a:hover {
+        color: var(--sun);
+      }
+      .footer-copy {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.3);
+      }
+
+      /* ── ANIMATIONS ── */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 768px) {
+        .hero {
+          grid-template-columns: 1fr;
+          gap: 40px;
+          padding: 48px 5%;
+        }
+        .hero-phones {
+          transform: none;
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .about-inner {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .nav-links {
+          display: none;
+        }
+        .apps-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* language sections */
+      [data-lang] {
+        display: none;
+      }
+      [data-lang].active {
+        display: block;
+      }
+      .inline-lang {
+        display: none;
+      }
+      .inline-lang.active {
+        display: inline;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Language Bar -->
+    <div class="lang-bar">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('pt')">PT</button>
+      <button class="lang-btn" onclick="setLang('tet')">TET</button>
+      <button class="lang-btn" onclick="setLang('id')">ID</button>
+    </div>
+
+    <!-- Nav -->
+    <nav>
+      <a href="#" class="nav-logo">
+        <span class="logo-dot"></span>
+        TimorApps
+      </a>
+      <ul class="nav-links">
+        <li>
+          <a
+            href="#apps"
+            data-nav-en="Our Apps"
+            data-nav-pt="As Nossas Apps"
+            data-nav-tet="Ami-nia Apps"
+            data-nav-id="Aplikasi Kami"
+            >Our Apps</a
+          >
+        </li>
+        <li>
+          <a
+            href="#about"
+            data-nav-en="About"
+            data-nav-pt="Sobre"
+            data-nav-tet="Kona-ba"
+            data-nav-id="Tentang"
+            >About</a
+          >
+        </li>
+        <li>
+          <a
+            href="#privacy"
+            data-nav-en="Privacy"
+            data-nav-pt="Privacidade"
+            data-nav-tet="Privasidade"
+            data-nav-id="Privasi"
+            >Privacy</a
+          >
+        </li>
+        <li>
+          <a
+            href="#contact"
+            data-nav-en="Contact"
+            data-nav-pt="Contacto"
+            data-nav-tet="Kontaktu"
+            data-nav-id="Kontak"
+            >Contact</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-text fade-in">
+        <div class="hero-badge">
+          <span class="flag">🇹🇱</span>
+          <span data-lang="en" class="active">Made in Timor-Leste</span>
+          <span data-lang="pt">Feito em Timor-Leste</span>
+          <span data-lang="tet">Halo iha Timor-Leste</span>
+          <span data-lang="id">Dibuat di Timor-Leste</span>
+        </div>
+        <h1>
+          <span data-lang="en" class="active"
+            >Apps that <em>matter</em> for everyday life</span
+          >
+          <span data-lang="pt"
+            >Apps que <em>importam</em> para o dia a dia</span
+          >
+          <span data-lang="tet"
+            >Apps ne'ebé <em>importante</em> ba moris loron-loron</span
+          >
+          <span data-lang="id"
+            >Aplikasi yang <em>penting</em> untuk kehidupan sehari-hari</span
+          >
+        </h1>
+        <p>
+          <span data-lang="en" class="active"
+            >Simple, beautiful, and privacy-first mobile apps for health, faith,
+            and language — built for Timor-Leste and the world.</span
+          >
+          <span data-lang="pt"
+            >Apps móveis simples, bonitas e com privacidade em primeiro lugar,
+            para saúde, fé e língua — criadas para Timor-Leste e o mundo.</span
+          >
+          <span data-lang="tet"
+            >Apps móvel simples, bonitu, no ho privasidade iha prioridade ba
+            saúde, fé, no língua — kria ba Timor-Leste no mundu tomak.</span
+          >
+          <span data-lang="id"
+            >Aplikasi seluler yang sederhana, indah, dan mengutamakan privasi
+            untuk kesehatan, iman, dan bahasa — dibuat untuk Timor-Leste dan
+            dunia.</span
+          >
+        </p>
+        <div class="hero-cta">
+          <a href="#apps" class="btn-primary">
+            <span data-lang="en" class="active">Explore Apps</span>
+            <span data-lang="pt">Ver Apps</span>
+            <span data-lang="tet">Haree Apps</span>
+            <span data-lang="id">Jelajahi Aplikasi</span>
+          </a>
+          <a href="#about" class="btn-secondary">
+            <span data-lang="en" class="active">Our Story</span>
+            <span data-lang="pt">A Nossa História</span>
+            <span data-lang="tet">Ami-nia Istória</span>
+            <span data-lang="id">Kisah Kami</span>
+          </a>
+        </div>
+      </div>
+      <div class="hero-visual fade-in" style="animation-delay: 0.2s">
+        <div class="hero-phones">
+          <div class="phone-card">
+            <div class="app-icon" style="background: #fde8c0">💊</div>
+            <div class="app-name">Doctor<br />Script</div>
+          </div>
+          <div class="phone-card">
+            <div class="app-icon" style="background: #d4f0ec">❤️</div>
+            <div class="app-name">My<br />Health</div>
+          </div>
+          <div class="phone-card">
+            <div class="app-icon" style="background: #e8d5f5">🙏</div>
+            <div class="app-name">O Dia<br />Santificado</div>
+          </div>
+          <div class="phone-card">
+            <div class="app-icon" style="background: #ffe0d4">🎵</div>
+            <div class="app-name">Hananu<br />ba Nai</div>
+          </div>
+          <div class="phone-card">
+            <div class="app-icon" style="background: #d4e8ff">📖</div>
+            <div class="app-name">Harohan<br />ba Nai</div>
+          </div>
+          <div class="phone-card">
+            <div class="app-icon" style="background: #ffecd4">💬</div>
+            <div class="app-name">Phrase<br />Book</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <div class="stats-bar">
+      <div class="stats-inner">
+        <div class="stat">
+          <span class="stat-num">6</span>
+          <div class="stat-label">
+            <span data-lang="en" class="active">Apps in 2026</span>
+            <span data-lang="pt">Apps em 2026</span>
+            <span data-lang="tet">Apps iha 2026</span>
+            <span data-lang="id">Aplikasi di 2026</span>
+          </div>
+        </div>
+        <div class="stat">
+          <span class="stat-num">2</span>
+          <div class="stat-label">
+            <span data-lang="en" class="active">Platforms</span>
+            <span data-lang="pt">Plataformas</span>
+            <span data-lang="tet">Plataforma</span>
+            <span data-lang="id">Platform</span>
+          </div>
+        </div>
+        <div class="stat">
+          <span class="stat-num">4</span>
+          <div class="stat-label">
+            <span data-lang="en" class="active">Languages</span>
+            <span data-lang="pt">Línguas</span>
+            <span data-lang="tet">Língua</span>
+            <span data-lang="id">Bahasa</span>
+          </div>
+        </div>
+        <div class="stat">
+          <span class="stat-num">100%</span>
+          <div class="stat-label">
+            <span data-lang="en" class="active">Privacy First</span>
+            <span data-lang="pt">Privacidade Primeiro</span>
+            <span data-lang="tet">Privasidade Primeiru</span>
+            <span data-lang="id">Utamakan Privasi</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Apps Section -->
+    <section class="apps-section" id="apps">
+      <div class="section-header fade-in">
+        <div class="section-tag">
+          <span data-lang="en" class="active">Our Apps</span>
+          <span data-lang="pt">As Nossas Apps</span>
+          <span data-lang="tet">Ami-nia Apps</span>
+          <span data-lang="id">Aplikasi Kami</span>
+        </div>
+        <h2>
+          <span data-lang="en" class="active">Six apps. Real impact.</span>
+          <span data-lang="pt">Seis apps. Impacto real.</span>
+          <span data-lang="tet">Apps neen. Impaktu real.</span>
+          <span data-lang="id">Enam aplikasi. Dampak nyata.</span>
+        </h2>
+        <p>
+          <span data-lang="en" class="active"
+            >Each app is built to solve a real need — for doctors, families,
+            believers, and language learners.</span
+          >
+          <span data-lang="pt"
+            >Cada app foi criada para resolver uma necessidade real — para
+            médicos, famílias, crentes e aprendizes de línguas.</span
+          >
+          <span data-lang="tet"
+            >App ida-idak kria atu resolve nesesidade real — ba médiku, família,
+            krente, no ema aprende língua.</span
+          >
+          <span data-lang="id"
+            >Setiap aplikasi dibangun untuk memecahkan kebutuhan nyata — bagi
+            dokter, keluarga, umat beriman, dan pelajar bahasa.</span
+          >
+        </p>
+      </div>
+
+      <div class="apps-grid">
+        <!-- DoctorScript -->
+        <div class="app-card fade-in" style="--card-accent: #e8604c">
+          <div class="app-card-header">
+            <div class="app-icon-large" style="background: #fde8c0">💊</div>
+            <div class="app-card-title">
+              <h3>DoctorScript</h3>
+              <div class="app-category">
+                <span data-lang="en" class="active"
+                  >Medical · Productivity</span
+                >
+                <span data-lang="pt">Médica · Produtividade</span>
+                <span data-lang="tet">Médiku · Produtividade</span>
+                <span data-lang="id">Medis · Produktivitas</span>
+              </div>
+            </div>
+          </div>
+          <p>
+            <span data-lang="en" class="active"
+              >Digital prescription management for doctors. Generate clean ℞
+              slips, manage patient records, and export to PDF — fully
+              offline.</span
+            >
+            <span data-lang="pt"
+              >Gestão de receitas digitais para médicos. Gere receitas ℞ limpas,
+              gere registos de pacientes e exporta para PDF — totalmente
+              offline.</span
+            >
+            <span data-lang="tet"
+              >Jestaun rekolla dijitál ba médiku sira. Jera rekolla ℞ moos, jere
+              rekordus pasiente, no exporta ba PDF — offline tomak.</span
+            >
+            <span data-lang="id"
+              >Manajemen resep digital untuk dokter. Hasilkan slip ℞ yang rapi,
+              kelola catatan pasien, dan ekspor ke PDF — sepenuhnya
+              offline.</span
+            >
+          </p>
+          <div class="app-tags">
+            <span class="tag">Offline</span>
+            <span class="tag">PDF Export</span>
+            <span class="tag">Privacy First</span>
+          </div>
+          <div class="app-actions">
+            <a href="#" class="store-btn apple">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"
+                />
+              </svg>
+              App Store
+            </a>
+            <a href="#" class="store-btn google">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M3.18 23.76c.3.17.64.24.99.2l13.24-7.65-2.79-2.79-11.44 10.24zm-1.76-20.3C1.16 3.78 1 4.22 1 4.75v14.5c0 .53.16.97.42 1.29l.07.07 8.13-8.13v-.19L1.42 4.16l-.08.08zm18.54 8.58l-2.65-1.53-3.03 3.03 3.03 3.03 2.65-1.53c.76-.44.76-1.56 0-2zm-16.88 9.48l11.44-10.24L11.73 8.49 3.08 20.93c.06.08.13.14.19.19l-.19.38z"
+                />
+              </svg>
+              Google Play
+            </a>
+          </div>
+        </div>
+
+        <!-- MyHealth -->
+        <div class="app-card fade-in" style="--card-accent: #2a9d8f">
+          <div class="app-card-header">
+            <div class="app-icon-large" style="background: #d4f0ec">❤️</div>
+            <div class="app-card-title">
+              <h3>MyHealth</h3>
+              <div class="app-category">
+                <span data-lang="en" class="active">Health · Wellness</span>
+                <span data-lang="pt">Saúde · Bem-estar</span>
+                <span data-lang="tet">Saúde · Bem-estar</span>
+                <span data-lang="id">Kesehatan · Kebugaran</span>
+              </div>
+            </div>
+          </div>
+          <p>
+            <span data-lang="en" class="active"
+              >Your personal health tracker. Monitor vitals, log symptoms, and
+              keep your medical history organized — all on your device.</span
+            >
+            <span data-lang="pt"
+              >O teu rastreador de saúde pessoal. Monitoriza sinais vitais,
+              regista sintomas e mantém o teu historial médico organizado — tudo
+              no teu dispositivo.</span
+            >
+            <span data-lang="tet"
+              >Ita-nia rastreador saúde pessoál. Monitoriza sinál vitál, rejista
+              sintoma, no mantein ita-nia istória médika organizadu — hotu-hotu
+              iha ita-nia dispositivo.</span
+            >
+            <span data-lang="id"
+              >Pelacak kesehatan pribadi Anda. Pantau tanda vital, catat gejala,
+              dan jaga riwayat medis Anda tetap teratur — semuanya di perangkat
+              Anda.</span
+            >
+          </p>
+          <div class="app-tags">
+            <span class="tag">Health Tracking</span>
+            <span class="tag">Offline</span>
+            <span class="tag">Personal Data</span>
+          </div>
+          <div class="app-actions">
+            <a href="#" class="store-btn coming">
+              <span data-lang="en" class="active">Coming Soon</span>
+              <span data-lang="pt">Em Breve</span>
+              <span data-lang="tet">Mai Lalais</span>
+              <span data-lang="id">Segera Hadir</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- O Dia Santificado -->
+        <div class="app-card fade-in" style="--card-accent: #9b59b6">
+          <div class="app-card-header">
+            <div class="app-icon-large" style="background: #e8d5f5">🙏</div>
+            <div class="app-card-title">
+              <h3>O Dia Santificado</h3>
+              <div class="app-category">
+                <span data-lang="en" class="active"
+                  >Faith · Prayer · Portuguese</span
+                >
+                <span data-lang="pt">Fé · Oração · Português</span>
+                <span data-lang="tet">Fé · Orasaun · Portugés</span>
+                <span data-lang="id">Iman · Doa · Portugis</span>
+              </div>
+            </div>
+          </div>
+          <p>
+            <span data-lang="en" class="active"
+              >A complete Catholic prayer book in Portuguese. Daily prayers, the
+              Rosary, sacraments, and liturgical devotions — always in your
+              pocket.</span
+            >
+            <span data-lang="pt"
+              >Um livro de orações católico completo em Português. Orações
+              diárias, o Rosário, sacramentos e devoções litúrgicas — sempre no
+              teu bolso.</span
+            >
+            <span data-lang="tet"
+              >Livru orasaun Katóliku kompletu iha Portugés. Orasaun
+              loron-loron, Rosáriu, sakramentu, no devosoens litúrjiku — sempre
+              iha ita-nia bolsu.</span
+            >
+            <span data-lang="id"
+              >Buku doa Katolik lengkap dalam bahasa Portugis. Doa harian,
+              Rosario, sakramen, dan devosi liturgi — selalu di saku Anda.</span
+            >
+          </p>
+          <div class="app-tags">
+            <span class="tag">Portuguese</span>
+            <span class="tag">Catholic</span>
+            <span class="tag">Offline</span>
+          </div>
+          <div class="app-actions">
+            <a href="#" class="store-btn apple">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"
+                />
+              </svg>
+              App Store
+            </a>
+            <a href="#" class="store-btn google">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M3.18 23.76c.3.17.64.24.99.2l13.24-7.65-2.79-2.79-11.44 10.24zm-1.76-20.3C1.16 3.78 1 4.22 1 4.75v14.5c0 .53.16.97.42 1.29l.07.07 8.13-8.13v-.19L1.42 4.16l-.08.08zm18.54 8.58l-2.65-1.53-3.03 3.03 3.03 3.03 2.65-1.53c.76-.44.76-1.56 0-2zm-16.88 9.48l11.44-10.24L11.73 8.49 3.08 20.93c.06.08.13.14.19.19l-.19.38z"
+                />
+              </svg>
+              Google Play
+            </a>
+          </div>
+        </div>
+
+        <!-- Hananu ba Nai -->
+        <div class="app-card fade-in" style="--card-accent: #e8604c">
+          <div class="app-card-header">
+            <div class="app-icon-large" style="background: #ffe0d4">🎵</div>
+            <div class="app-card-title">
+              <h3>Hananu ba Nai</h3>
+              <div class="app-category">
+                <span data-lang="en" class="active">Faith · Songs · Tetum</span>
+                <span data-lang="pt">Fé · Cânticos · Tétum</span>
+                <span data-lang="tet">Fé · Kántiku · Tétum</span>
+                <span data-lang="id">Iman · Lagu · Tetum</span>
+              </div>
+            </div>
+          </div>
+          <p>
+            <span data-lang="en" class="active"
+              >A Catholic hymnal in Tetum — the language of Timor-Leste.
+              Liturgical songs organized for Mass, celebrations, and personal
+              devotion.</span
+            >
+            <span data-lang="pt"
+              >Um hinário católico em Tétum — a língua de Timor-Leste. Cânticos
+              litúrgicos organizados para a Missa, celebrações e devoção
+              pessoal.</span
+            >
+            <span data-lang="tet"
+              >Koletivu kántiku Katóliku iha Tétum — língua Timor-Leste nian.
+              Kántiku litúrjiku organizadu ba Misa, selebrasaun, no devosoens
+              pessoál.</span
+            >
+            <span data-lang="id"
+              >Buku nyanyian Katolik dalam bahasa Tetum — bahasa Timor-Leste.
+              Lagu-lagu liturgi yang disusun untuk Misa, perayaan, dan devosi
+              pribadi.</span
+            >
+          </p>
+          <div class="app-tags">
+            <span class="tag">Tetum</span>
+            <span class="tag">Catholic</span>
+            <span class="tag">Timor-Leste</span>
+          </div>
+          <div class="app-actions">
+            <a href="#" class="store-btn coming">
+              <span data-lang="en" class="active">Coming Soon</span>
+              <span data-lang="pt">Em Breve</span>
+              <span data-lang="tet">Mai Lalais</span>
+              <span data-lang="id">Segera Hadir</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Harohan ba Nai -->
+        <div class="app-card fade-in" style="--card-accent: #3b82f6">
+          <div class="app-card-header">
+            <div class="app-icon-large" style="background: #d4e8ff">📖</div>
+            <div class="app-card-title">
+              <h3>Harohan ba Nai</h3>
+              <div class="app-category">
+                <span data-lang="en" class="active"
+                  >Faith · Prayer · Tetum</span
+                >
+                <span data-lang="pt">Fé · Oração · Tétum</span>
+                <span data-lang="tet">Fé · Orasaun · Tétum</span>
+                <span data-lang="id">Iman · Doa · Tetum</span>
+              </div>
+            </div>
+          </div>
+          <p>
+            <span data-lang="en" class="active"
+              >A Catholic prayer book in Tetum for the faithful of Timor-Leste.
+              Traditional and liturgical prayers in the heart language of the
+              nation.</span
+            >
+            <span data-lang="pt"
+              >Um livro de orações católico em Tétum para os fiéis de
+              Timor-Leste. Orações tradicionais e litúrgicas na língua do
+              coração da nação.</span
+            >
+            <span data-lang="tet"
+              >Livru orasaun Katóliku iha Tétum ba krente Timor-Leste nian.
+              Orasaun tradisionál no litúrjiku iha língua korasaun nasaun
+              nian.</span
+            >
+            <span data-lang="id"
+              >Buku doa Katolik dalam bahasa Tetum untuk umat beriman di
+              Timor-Leste. Doa tradisional dan liturgi dalam bahasa hati
+              bangsa.</span
+            >
+          </p>
+          <div class="app-tags">
+            <span class="tag">Tetum</span>
+            <span class="tag">Catholic</span>
+            <span class="tag">Offline</span>
+          </div>
+          <div class="app-actions">
+            <a href="#" class="store-btn coming">
+              <span data-lang="en" class="active">Coming Soon</span>
+              <span data-lang="pt">Em Breve</span>
+              <span data-lang="tet">Mai Lalais</span>
+              <span data-lang="id">Segera Hadir</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Multilingual Phrasebook -->
+        <div class="app-card fade-in" style="--card-accent: #f5a623">
+          <div class="app-card-header">
+            <div class="app-icon-large" style="background: #ffecd4">💬</div>
+            <div class="app-card-title">
+              <h3>Multilingual Phrasebook</h3>
+              <div class="app-category">
+                <span data-lang="en" class="active"
+                  >Language · Travel · Education</span
+                >
+                <span data-lang="pt">Língua · Viagem · Educação</span>
+                <span data-lang="tet">Língua · Viajen · Edukasaun</span>
+                <span data-lang="id">Bahasa · Perjalanan · Pendidikan</span>
+              </div>
+            </div>
+          </div>
+          <p>
+            <span data-lang="en" class="active"
+              >Essential phrases in English, Tetum, Indonesian, and Portuguese.
+              Perfect for travelers, expats, and language learners in Southeast
+              Asia.</span
+            >
+            <span data-lang="pt"
+              >Frases essenciais em Inglês, Tétum, Indonésio e Português.
+              Perfeito para viajantes, expatriados e aprendizes de línguas no
+              Sudeste Asiático.</span
+            >
+            <span data-lang="tet"
+              >Fraze esensiál iha Inglés, Tétum, Indonéziu, no Portugés.
+              Perfektu ba viajantu, expatriadu, no ema aprende língua iha Ázia
+              Sudeste.</span
+            >
+            <span data-lang="id"
+              >Frase penting dalam bahasa Inggris, Tetum, Indonesia, dan
+              Portugis. Sempurna untuk wisatawan, ekspatriat, dan pelajar bahasa
+              di Asia Tenggara.</span
+            >
+          </p>
+          <div class="app-tags">
+            <span class="tag">4 Languages</span>
+            <span class="tag">Tetum</span>
+            <span class="tag">Travel</span>
+          </div>
+          <div class="app-actions">
+            <a href="#" class="store-btn coming">
+              <span data-lang="en" class="active">Coming Soon</span>
+              <span data-lang="pt">Em Breve</span>
+              <span data-lang="tet">Mai Lalais</span>
+              <span data-lang="id">Segera Hadir</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+      <div class="about-inner">
+        <div class="about-content fade-in">
+          <div class="section-tag">
+            <span data-lang="en" class="active">About Us</span>
+            <span data-lang="pt">Sobre Nós</span>
+            <span data-lang="tet">Kona-ba Ami</span>
+            <span data-lang="id">Tentang Kami</span>
+          </div>
+          <h2>
+            <span data-lang="en" class="active"
+              >Built in Timor-Leste, for the world</span
+            >
+            <span data-lang="pt">Criado em Timor-Leste, para o mundo</span>
+            <span data-lang="tet">Kria iha Timor-Leste, ba mundu tomak</span>
+            <span data-lang="id">Dibuat di Timor-Leste, untuk dunia</span>
+          </h2>
+          <p>
+            <span data-lang="en" class="active"
+              >TimorApps is an independent mobile app studio based in Dili,
+              Timor-Leste. We build apps that serve real communities — doctors,
+              families, believers, and language learners.</span
+            >
+            <span data-lang="pt"
+              >A TimorApps é um estúdio independente de apps móveis sediado em
+              Díli, Timor-Leste. Criamos apps que servem comunidades reais —
+              médicos, famílias, crentes e aprendizes de línguas.</span
+            >
+            <span data-lang="tet"
+              >TimorApps maka estúdiu apps móvel independente iha Díli,
+              Timor-Leste. Ami kria apps ne'ebé serve komunidade real — médiku,
+              família, krente, no ema aprende língua.</span
+            >
+            <span data-lang="id"
+              >TimorApps adalah studio aplikasi seluler independen yang berbasis
+              di Dili, Timor-Leste. Kami membangun aplikasi yang melayani
+              komunitas nyata — dokter, keluarga, umat beriman, dan pelajar
+              bahasa.</span
+            >
+          </p>
+          <p>
+            <span data-lang="en" class="active"
+              >Every app is designed with privacy at its core — no cloud
+              dependency, no subscriptions you don't need, and no data leaving
+              your device without your knowledge.</span
+            >
+            <span data-lang="pt"
+              >Cada app é desenhada com a privacidade no seu núcleo — sem
+              dependência da nuvem, sem subscrições desnecessárias e sem dados a
+              sair do teu dispositivo sem o teu conhecimento.</span
+            >
+            <span data-lang="tet"
+              >App ida-idak dezaina ho privasidade iha sentru — laiha
+              dependénsia nuvem, laiha subscripsaun ne'ebé la presiza, no laiha
+              dadus sai husi ita-nia dispositivo laho ita-nia koñesimentu.</span
+            >
+            <span data-lang="id"
+              >Setiap aplikasi dirancang dengan mengutamakan privasi — tidak ada
+              ketergantungan pada cloud, tidak ada langganan yang tidak Anda
+              perlukan, dan tidak ada data yang meninggalkan perangkat tanpa
+              sepengetahuan Anda.</span
+            >
+          </p>
+          <div class="about-values">
+            <div class="value-item">
+              <div class="value-icon">🔒</div>
+              <h4>
+                <span data-lang="en" class="active">Privacy First</span
+                ><span data-lang="pt">Privacidade Primeiro</span
+                ><span data-lang="tet">Privasidade Primeiru</span
+                ><span data-lang="id">Utamakan Privasi</span>
+              </h4>
+              <p>
+                <span data-lang="en" class="active"
+                  >Your data stays on your device</span
+                ><span data-lang="pt"
+                  >Os teus dados ficam no teu dispositivo</span
+                ><span data-lang="tet">Ita-nia dadus rai iha dispositivo</span
+                ><span data-lang="id">Data Anda tetap di perangkat Anda</span>
+              </p>
+            </div>
+            <div class="value-item">
+              <div class="value-icon">🌍</div>
+              <h4>
+                <span data-lang="en" class="active">Multilingual</span
+                ><span data-lang="pt">Multilingue</span
+                ><span data-lang="tet">Multilingue</span
+                ><span data-lang="id">Multibahasa</span>
+              </h4>
+              <p>
+                <span data-lang="en" class="active"
+                  >EN, PT, Tetum, Indonesian</span
+                ><span data-lang="pt">PT, EN, Tétum, Indonésio</span
+                ><span data-lang="tet">TET, PT, EN, Indonéziu</span
+                ><span data-lang="id">EN, PT, Tetum, Indonesia</span>
+              </p>
+            </div>
+            <div class="value-item">
+              <div class="value-icon">📵</div>
+              <h4>
+                <span data-lang="en" class="active">Works Offline</span
+                ><span data-lang="pt">Funciona Offline</span
+                ><span data-lang="tet">Funsiona Offline</span
+                ><span data-lang="id">Bekerja Offline</span>
+              </h4>
+              <p>
+                <span data-lang="en" class="active"
+                  >No internet? No problem.</span
+                ><span data-lang="pt">Sem internet? Sem problema.</span
+                ><span data-lang="tet">Laiha internet? Laiha problema.</span
+                ><span data-lang="id">Tidak ada internet? Tidak masalah.</span>
+              </p>
+            </div>
+            <div class="value-item">
+              <div class="value-icon">🇹🇱</div>
+              <h4>
+                <span data-lang="en" class="active">Local Identity</span
+                ><span data-lang="pt">Identidade Local</span
+                ><span data-lang="tet">Identidade Lokál</span
+                ><span data-lang="id">Identitas Lokal</span>
+              </h4>
+              <p>
+                <span data-lang="en" class="active"
+                  >Proudly from Timor-Leste</span
+                ><span data-lang="pt">Orgulhosamente de Timor-Leste</span
+                ><span data-lang="tet">Ho orgullu husi Timor-Leste</span
+                ><span data-lang="id">Dengan bangga dari Timor-Leste</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="about-map fade-in">
+          <span class="timor-outline">🇹🇱</span>
+          <h3>Dili, Timor-Leste</h3>
+          <p>
+            <span data-lang="en" class="active"
+              >A small nation with a big heart. Our apps carry the spirit of
+              Timor-Leste — resilient, faithful, and community-driven — to every
+              corner of the world.</span
+            >
+            <span data-lang="pt"
+              >Uma pequena nação com um grande coração. As nossas apps carregam
+              o espírito de Timor-Leste — resiliente, fiel e orientado para a
+              comunidade — a todos os cantos do mundo.</span
+            >
+            <span data-lang="tet"
+              >Nasaun kiik ho korasaun boot. Ami-nia apps lori espíritu
+              Timor-Leste nian — reziliente, fiel, no orientadu ba komunidade —
+              ba kantun hotu-hotu mundu nian.</span
+            >
+            <span data-lang="id"
+              >Bangsa kecil dengan hati besar. Aplikasi kami membawa semangat
+              Timor-Leste — tangguh, beriman, dan digerakkan oleh komunitas — ke
+              setiap sudut dunia.</span
+            >
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy Section -->
+    <section class="privacy-section" id="privacy">
+      <div class="section-header fade-in">
+        <div class="section-tag">
+          <span data-lang="en" class="active">Privacy</span>
+          <span data-lang="pt">Privacidade</span>
+          <span data-lang="tet">Privasidade</span>
+          <span data-lang="id">Privasi</span>
+        </div>
+        <h2>
+          <span data-lang="en" class="active">Your data. Your control.</span>
+          <span data-lang="pt">Os teus dados. O teu controlo.</span>
+          <span data-lang="tet">Ita-nia dadus. Ita-nia kontrolu.</span>
+          <span data-lang="id">Data Anda. Kontrol Anda.</span>
+        </h2>
+        <p>
+          <span data-lang="en" class="active"
+            >We believe privacy is a right, not a feature. Here's our commitment
+            to every user.</span
+          >
+          <span data-lang="pt"
+            >Acreditamos que a privacidade é um direito, não uma funcionalidade.
+            Este é o nosso compromisso com cada utilizador.</span
+          >
+          <span data-lang="tet"
+            >Ami fiar katak privasidade maka direitu, la'ós karaterístika. Ne'e
+            ami-nia kompromisu ba uzuáriu ida-idak.</span
+          >
+          <span data-lang="id"
+            >Kami percaya privasi adalah sebuah hak, bukan sekadar fitur. Inilah
+            komitmen kami kepada setiap pengguna.</span
+          >
+        </p>
+      </div>
+      <div class="privacy-grid">
+        <div class="privacy-card fade-in">
+          <div class="privacy-icon">📵</div>
+          <div>
+            <h4>
+              <span data-lang="en" class="active">No Internet Required</span
+              ><span data-lang="pt">Sem Internet Necessária</span
+              ><span data-lang="tet">Laiha Internet Presiza</span
+              ><span data-lang="id">Tidak Perlu Internet</span>
+            </h4>
+            <p>
+              <span data-lang="en" class="active"
+                >All our apps work completely offline. No Wi-Fi, no mobile data
+                needed.</span
+              ><span data-lang="pt"
+                >Todas as nossas apps funcionam completamente offline. Sem
+                Wi-Fi, sem dados móveis necessários.</span
+              ><span data-lang="tet"
+                >Ami-nia apps hotu-hotu funsiona offline tomak. Laiha Wi-Fi,
+                laiha dadus móvel presiza.</span
+              ><span data-lang="id"
+                >Semua aplikasi kami bekerja sepenuhnya offline. Tidak perlu
+                Wi-Fi, tidak perlu data seluler.</span
+              >
+            </p>
+          </div>
+        </div>
+        <div class="privacy-card fade-in">
+          <div class="privacy-icon">☁️</div>
+          <div>
+            <h4>
+              <span data-lang="en" class="active">No Cloud Storage</span
+              ><span data-lang="pt">Sem Armazenamento na Nuvem</span
+              ><span data-lang="tet">Laiha Armazenamentu Nuvem</span
+              ><span data-lang="id">Tidak Ada Penyimpanan Cloud</span>
+            </h4>
+            <p>
+              <span data-lang="en" class="active"
+                >Your data is never uploaded to any server. It lives only on
+                your device.</span
+              ><span data-lang="pt"
+                >Os teus dados nunca são enviados para nenhum servidor. Ficam
+                apenas no teu dispositivo.</span
+              ><span data-lang="tet"
+                >Ita-nia dadus la haruka ba servidór ruma. Rai de'it iha ita-nia
+                dispositivo.</span
+              ><span data-lang="id"
+                >Data Anda tidak pernah diunggah ke server mana pun. Hanya ada
+                di perangkat Anda.</span
+              >
+            </p>
+          </div>
+        </div>
+        <div class="privacy-card fade-in">
+          <div class="privacy-icon">🗑️</div>
+          <div>
+            <h4>
+              <span data-lang="en" class="active">Full Delete Control</span
+              ><span data-lang="pt">Controlo Total de Eliminação</span
+              ><span data-lang="tet">Kontrolu Hamoos Tomak</span
+              ><span data-lang="id">Kontrol Hapus Penuh</span>
+            </h4>
+            <p>
+              <span data-lang="en" class="active"
+                >Delete your data anytime, completely. One tap and it's gone —
+                permanently.</span
+              ><span data-lang="pt"
+                >Elimina os teus dados a qualquer momento, completamente. Um
+                toque e desaparecem — permanentemente.</span
+              ><span data-lang="tet"
+                >Hamoos ita-nia dadus iha tempu ruma, tomak. Toque ida no lakon
+                tiha — permanentemente.</span
+              ><span data-lang="id"
+                >Hapus data Anda kapan saja, secara keseluruhan. Satu ketukan
+                dan hilang — permanen.</span
+              >
+            </p>
+          </div>
+        </div>
+        <div class="privacy-card fade-in">
+          <div class="privacy-icon">📊</div>
+          <div>
+            <h4>
+              <span data-lang="en" class="active">No Tracking or Analytics</span
+              ><span data-lang="pt">Sem Rastreamento ou Análise</span
+              ><span data-lang="tet">Laiha Rastreamentu ka Análize</span
+              ><span data-lang="id">Tanpa Pelacakan atau Analitik</span>
+            </h4>
+            <p>
+              <span data-lang="en" class="active"
+                >We do not track your behaviour, location, or usage patterns.
+                None.</span
+              ><span data-lang="pt"
+                >Não rastreamos o teu comportamento, localização ou padrões de
+                utilização. Nenhum.</span
+              ><span data-lang="tet"
+                >Ami la rastreia ita-nia komportamentu, lokalizasaun, ka padraun
+                utilizasaun. Laiha.</span
+              ><span data-lang="id"
+                >Kami tidak melacak perilaku, lokasi, atau pola penggunaan Anda.
+                Sama sekali tidak.</span
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Link to detailed Privacy Policy -->
+      <div class="fade-in" style="text-align: center; margin-top: 56px">
+        <a href="privacy.html" class="btn-primary">
+          <span data-lang="en" class="active">Read Full Privacy Policy</span>
+          <span data-lang="pt">Ler Política de Privacidade Completa</span>
+          <span data-lang="tet">Lee Polítika Privasidade Tomak</span>
+          <span data-lang="id">Baca Kebijakan Privasi Lengkap</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+      <div class="contact-inner fade-in">
+        <h2>
+          <span data-lang="en" class="active">Get in touch</span>
+          <span data-lang="pt">Entre em contacto</span>
+          <span data-lang="tet">Kontaktu ami</span>
+          <span data-lang="id">Hubungi kami</span>
+        </h2>
+        <p>
+          <span data-lang="en" class="active"
+            >Have a question about one of our apps? Found a bug? Want to
+            collaborate? We'd love to hear from you.</span
+          >
+          <span data-lang="pt"
+            >Tens uma pergunta sobre uma das nossas apps? Encontraste um erro?
+            Queres colaborar? Adoraríamos ouvir-te.</span
+          >
+          <span data-lang="tet"
+            >Iha pergunta kona-ba ami-nia apps ida? Hetan erru? Hakarak
+            kolabora? Ami hakarak rona ita.</span
+          >
+          <span data-lang="id"
+            >Punya pertanyaan tentang salah satu aplikasi kami? Menemukan bug?
+            Ingin berkolaborasi? Kami ingin mendengar dari Anda.</span
+          >
+        </p>
+        <a href="mailto:hello@timorapps.com" class="contact-email">
+          ✉️ hello@timorapps.com
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-logo">🇹🇱 TimorApps</div>
+        <div class="footer-links">
+          <a href="#apps">
+            <span data-lang="en" class="active">Apps</span>
+            <span data-lang="pt">Apps</span>
+            <span data-lang="tet">Apps</span>
+            <span data-lang="id">Aplikasi</span>
+          </a>
+          <a href="#about">
+            <span data-lang="en" class="active">About</span>
+            <span data-lang="pt">Sobre</span>
+            <span data-lang="tet">Kona-ba</span>
+            <span data-lang="id">Tentang</span>
+          </a>
+          <a href="privacy.html">
+            <span data-lang="en" class="active">Privacy Policy</span>
+            <span data-lang="pt">Política de Privacidade</span>
+            <span data-lang="tet">Polítika Privasidade</span>
+            <span data-lang="id">Kebijakan Privasi</span>
+          </a>
+          <a href="mailto:hello@timorapps.com">
+            <span data-lang="en" class="active">Contact</span>
+            <span data-lang="pt">Contacto</span>
+            <span data-lang="tet">Kontaktu</span>
+            <span data-lang="id">Kontak</span>
+          </a>
+        </div>
+        <div class="footer-copy">
+          © 2025 TimorApps · Dili, Timor-Leste · All rights reserved
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // ── LANGUAGE SWITCHER ──
+      function setLang(lang) {
+        // Update buttons
+        document
+          .querySelectorAll(".lang-btn")
+          .forEach((btn) => btn.classList.remove("active"));
+        const activeBtn = document.querySelector(
+          `.lang-btn[onclick="setLang('${lang}')"]`,
+        );
+        if (activeBtn) activeBtn.classList.add("active");
+
+        // Update all data-lang elements
+        document.querySelectorAll("[data-lang]").forEach((el) => {
+          el.classList.toggle("active", el.dataset.lang === lang);
+        });
+
+        // Update nav links
+        document.querySelectorAll("[data-nav-en]").forEach((el) => {
+          el.textContent =
+            el.getAttribute(`data-nav-${lang}`) ||
+            el.getAttribute("data-nav-en");
+        });
+
+        // Save preference
+        localStorage.setItem("timorapps-lang", lang);
+      }
+
+      // Load saved language
+      const savedLang = localStorage.getItem("timorapps-lang") || "en";
+      setLang(savedLang);
+
+      // ── SCROLL ANIMATIONS ──
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+              setTimeout(() => {
+                entry.target.classList.add("visible");
+              }, i * 80);
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+
+      document
+        .querySelectorAll(".fade-in")
+        .forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
