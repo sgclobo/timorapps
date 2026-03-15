@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Privacy Policy — TimorApps</title>
+  <meta name="description" content="Privacy Policy for all TimorApps mobile applications."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/png" href="icons/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="icons/favicon.svg" />
+<link rel="shortcut icon" href="icons/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="TimorDijital" />
+<link rel="manifest" href="icons/site.webmanifest" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sun: #F5A623;
+      --coral: #E8604C;
+      --teal: #2A9D8F;
+      --teal-light: #D4F0EC;
+      --night: #1A1A2E;
+      --warm-bg: #FDFAF5;
+      --warm-mid: #F5EFE0;
+      --text: #2C2416;
+      --text-muted: #7A6E5F;
+      --white: #FFFFFF;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--warm-bg); color: var(--text); }
+
+    .lang-bar {
+      background: var(--night); padding: 8px 24px;
+      display: flex; justify-content: flex-end; gap: 8px;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .lang-btn {
+      background: transparent; border: 1px solid rgba(255,255,255,0.25);
+      color: rgba(255,255,255,0.7); padding: 4px 14px; border-radius: 20px;
+      font-size: 12px; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: all 0.2s;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      background: var(--sun); border-color: var(--sun); color: var(--night); font-weight: 600;
+    }
+
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 5%; background: var(--warm-bg); border-bottom: 1px solid var(--warm-mid);
+    }
+    .nav-logo {
+      font-family: 'Fraunces', serif; font-size: 22px; font-weight: 700;
+      color: var(--night); text-decoration: none; display: flex; align-items: center; gap: 10px;
+    }
+    .nav-logo .logo-dot { width: 10px; height: 10px; background: var(--sun); border-radius: 50%; display: inline-block; }
+    .back-link { color: var(--teal); text-decoration: none; font-size: 14px; font-weight: 500; }
+    .back-link:hover { text-decoration: underline; }
+
+    .hero-privacy {
+      background: var(--night); padding: 60px 5%; text-align: center;
+    }
+    .hero-privacy h1 {
+      font-family: 'Fraunces', serif; font-size: clamp(32px, 5vw, 52px);
+      font-weight: 700; color: white; margin-bottom: 12px;
+    }
+    .hero-privacy p { font-size: 15px; color: rgba(255,255,255,0.6); }
+    .hero-privacy .updated {
+      display: inline-block; background: rgba(245,166,35,0.2); color: var(--sun);
+      padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-top: 16px;
+    }
+
+    .content {
+      max-width: 800px; margin: 60px auto; padding: 0 5% 80px;
+    }
+
+    .app-policy {
+      background: white; border-radius: 20px; padding: 40px;
+      box-shadow: 0 4px 24px rgba(26,26,46,0.08); margin-bottom: 32px;
+      border-left: 5px solid var(--teal);
+    }
+    .app-policy h2 {
+      font-family: 'Fraunces', serif; font-size: 24px; font-weight: 700;
+      color: var(--night); margin-bottom: 6px; display: flex; align-items: center; gap: 12px;
+    }
+    .app-policy .app-sub {
+      font-size: 13px; color: var(--text-muted); font-weight: 500; margin-bottom: 24px;
+    }
+    .policy-block { margin-bottom: 24px; }
+    .policy-block h3 {
+      font-size: 14px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.06em; color: var(--teal); margin-bottom: 10px;
+    }
+    .policy-block p { font-size: 15px; line-height: 1.8; color: var(--text-muted); }
+    .policy-block ul { padding-left: 20px; }
+    .policy-block ul li { font-size: 15px; line-height: 1.8; color: var(--text-muted); margin-bottom: 4px; }
+
+    .general-section {
+      background: var(--warm-mid); border-radius: 20px; padding: 40px; margin-bottom: 32px;
+    }
+    .general-section h2 {
+      font-family: 'Fraunces', serif; font-size: 24px; font-weight: 700;
+      color: var(--night); margin-bottom: 20px;
+    }
+    .general-section p { font-size: 15px; line-height: 1.8; color: var(--text-muted); margin-bottom: 14px; }
+
+    .contact-box {
+      background: var(--night); border-radius: 20px; padding: 40px; text-align: center;
+    }
+    .contact-box h2 { font-family: 'Fraunces', serif; font-size: 24px; color: white; margin-bottom: 12px; }
+    .contact-box p { font-size: 15px; color: rgba(255,255,255,0.6); margin-bottom: 20px; }
+    .contact-box a {
+      display: inline-block; background: var(--sun); color: var(--night);
+      padding: 12px 28px; border-radius: 50px; font-weight: 700; text-decoration: none;
+    }
+
+    footer {
+      background: #0F0F1E; padding: 32px 5%; text-align: center;
+    }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); }
+    .footer-back { color: var(--sun); text-decoration: none; font-size: 13px; display: block; margin-bottom: 12px; }
+
+    [data-lang] { display: none; }
+    [data-lang].active { display: block; }
+  </style>
+</head>
+<body>
+
+  <div class="lang-bar">
+    <button class="lang-btn active" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('pt')">PT</button>
+    <button class="lang-btn" onclick="setLang('tet')">TET</button>
+    <button class="lang-btn" onclick="setLang('id')">ID</button>
+  </div>
+
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <span class="logo-dot"></span>TimorApps
+    </a>
+    <a href="index.html" class="back-link">
+      <span data-lang="en" class="active">← Back to Home</span>
+      <span data-lang="pt">← Voltar ao Início</span>
+      <span data-lang="tet">← Fila ba Pájina Prinsipál</span>
+        <span data-lang="id">← Kembali ke Beranda</span>
+    </a>
+  </nav>
+
+  <div class="hero-privacy">
+    <h1>
+      <span data-lang="en" class="active">Privacy Policy</span>
+      <span data-lang="pt">Política de Privacidade</span>
+      <span data-lang="tet">Polítika Privasidade</span>
+        <span data-lang="id">Kebijakan Privasi</span>
+    </h1>
+    <p>
+      <span data-lang="en" class="active">How each TimorApps application handles your data</span>
+      <span data-lang="pt">Como cada aplicação TimorApps trata os seus dados</span>
+      <span data-lang="tet">Oinsá aplikasaun TimorApps ida-idak trata ita-nia dadus</span>
+        <span data-lang="id">Bagaimana setiap aplikasi TimorApps menangani data Anda</span>
+    </p>
+    <div class="updated">
+      <span data-lang="en" class="active">Last updated: March 2026</span>
+      <span data-lang="pt">Última atualização: Março 2026</span>
+      <span data-lang="tet">Atualiza fali: Marsu 2026</span>
+        <span data-lang="id">Terakhir diperbarui: Maret 2026</span>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- General Statement -->
+    <div class="general-section">
+      <h2>
+        <span data-lang="en" class="active">Our Core Commitment</span>
+        <span data-lang="pt">O Nosso Compromisso Principal</span>
+        <span data-lang="tet">Ami-nia Kompromisu Prinsipál</span>
+        <span data-lang="id">Komitmen Utama Kami</span>
+      </h2>
+      <p>
+        <span data-lang="en" class="active">All TimorApps applications are built on a privacy-first architecture. We do not collect, transmit, sell, or share your personal data with any third party. All data entered into our apps is stored exclusively on your device using a local database.</span>
+        <span data-lang="pt">Todas as aplicações TimorApps são construídas com uma arquitetura que privilegia a privacidade. Não recolhemos, transmitimos, vendemos ou partilhamos os seus dados pessoais com terceiros. Todos os dados introduzidos nas nossas apps são armazenados exclusivamente no seu dispositivo numa base de dados local.</span>
+        <span data-lang="tet">Aplikasaun TimorApps hotu-hotu kria ho arkitetura privasidade-primeiru. Ami la kole, transmite, faan, ka fahe ita-nia dadus pessoál ho terseiru ruma. Dadus hotu-hotu ne'ebé hatama iha ami-nia apps rai de'it iha ita-nia dispositivo uza baze dadus lokál.</span>
+        <span data-lang="id">Semua aplikasi TimorApps dibangun di atas arsitektur yang mengutamakan privasi. Kami tidak mengumpulkan, mengirimkan, menjual, atau membagikan data pribadi Anda kepada pihak ketiga mana pun. Semua data yang dimasukkan ke dalam aplikasi kami disimpan secara eksklusif di perangkat Anda menggunakan basis data lokal.</span>
+      </p>
+      <p>
+        <span data-lang="en" class="active">No internet connection is required for any of our apps to function. Your data never leaves your device unless you explicitly choose to export or share it yourself.</span>
+        <span data-lang="pt">Nenhuma das nossas apps requer ligação à internet para funcionar. Os seus dados nunca saem do seu dispositivo a menos que opte explicitamente por exportá-los ou partilhá-los.</span>
+        <span data-lang="tet">Internet la presiza ba ami-nia apps hotu-hotu atu funsiona. Ita-nia dadus la sai husi ita-nia dispositivo maibé ita mesak hili atu exporta ka fahe.</span>
+        <span data-lang="id">Tidak diperlukan koneksi internet agar aplikasi kami dapat berfungsi. Data Anda tidak pernah meninggalkan perangkat kecuali Anda secara eksplisit memilih untuk mengekspor atau membagikannya sendiri.</span>
+      </p>
+    </div>
+
+    <!-- DoctorScript -->
+    <div class="app-policy">
+      <h2>💊 DoctorScript</h2>
+      <div class="app-sub">
+        <span data-lang="en" class="active">Digital Prescription Manager</span>
+        <span data-lang="pt">Gestor de Receitas Digitais</span>
+        <span data-lang="tet">Jestaun Rekolla Dijitál</span>
+        <span data-lang="id">Manajer Resep Digital</span>
+      </div>
+      <div class="policy-block">
+        <h3><span data-lang="en" class="active">Data Collected</span><span data-lang="pt">Dados Recolhidos</span><span data-lang="tet">Dadus Kole</span>
+        <span data-lang="id">Data yang Dikumpulkan</span></h3>
+        <ul>
+          <li><span data-lang="en" class="active">Doctor profile: name, specialty, license number, digital signature</span><span data-lang="pt">Perfil do médico: nome, especialidade, número de cédula, assinatura digital</span><span data-lang="tet">Perfil médiku: naran, espesialidáde, númeru lisensa, assinatura dijitál</span>
+        <span data-lang="id">Profil dokter: nama, spesialisasi, nomor lisensi, tanda tangan digital</span></li>
+          <li><span data-lang="en" class="active">Patient records: name, date of birth, phone number, clinical history</span><span data-lang="pt">Registos de pacientes: nome, data de nascimento, número de telefone, historial clínico</span><span data-lang="tet">Rekordus pasiente: naran, data moris, númeru telefone, istória kliniku</span>
+        <span data-lang="id">Catatan pasien: nama, tanggal lahir, nomor telepon, riwayat klinis</span></li>
+          <li><span data-lang="en" class="active">Prescriptions: medications, dosages, frequencies, durations, clinical notes</span><span data-lang="pt">Receitas: medicamentos, dosagens, frequências, durações, notas clínicas</span><span data-lang="tet">Rekolla: medikamentu, dóze, frekuénsia, durasaun, nota kliniku</span>
+        <span data-lang="id">Resep: obat, dosis, frekuensi, durasi, catatan klinis</span></li>
+        </ul>
+      </div>
+      <div class="policy-block">
+        <h3><span data-lang="en" class="active">How Data is Stored</span><span data-lang="pt">Como os Dados são Armazenados</span><span data-lang="tet">Oinsá Dadus Rai</span>
+        <span data-lang="id">Bagaimana Data Disimpan</span></h3>
+        <p><span data-lang="en" class="active">All data is stored locally in an SQLite database on your device. No data is transmitted to any server, cloud service, or third party under any circumstances.</span><span data-lang="pt">Todos os dados são armazenados localmente numa base de dados SQLite no seu dispositivo. Nenhum dado é transmitido para qualquer servidor, serviço em nuvem ou terceiros em qualquer circunstância.</span><span data-lang="tet">Dadus hotu-hotu rai lokálmente iha baze dadus SQLite iha ita-nia dispositivo. Laiha dadus transmite ba servidór, serviçu nuvem, ka terseiru iha sirkumstánsia ruma.</span>
+        <span data-lang="id">Semua data disimpan secara lokal dalam basis data SQLite di perangkat Anda. Tidak ada data yang dikirimkan ke server, layanan awan, atau pihak ketiga dalam keadaan apa pun.</span></p>
+      </div>
+      <div class="policy-block">
+        <h3><span data-lang="en" class="active">Data Deletion</span><span data-lang="pt">Eliminação de Dados</span><span data-lang="tet">Hamoos Dadus</span>
+        <span data-lang="id">Penghapusan Data</span></h3>
+        <p><span data-lang="en" class="active">You can delete individual patient records, prescriptions, or your entire profile at any time from within the app. Uninstalling the app removes all associated data permanently.</span><span data-lang="pt">Pode eliminar registos individuais de pacientes, receitas ou o seu perfil completo a qualquer momento dentro da app. Desinstalar a app remove permanentemente todos os dados associados.</span><span data-lang="tet">Ita bele hamoos rekordus pasiente individuál, rekolla, ka ita-nia perfil tomak iha tempu ruma husi laran app. Desinstala app hasai permanentemente dadus hotu-hotu ne'ebé asosiadu.</span>
+        <span data-lang="id">Anda dapat menghapus catatan pasien individual, resep, atau seluruh profil Anda kapan saja dari dalam aplikasi. Mencopot pemasangan aplikasi akan menghapus seluruh data terkait secara permanen.</span></p>
+      </div>
+      <div class="policy-block">
+        <h3><span data-lang="en" class="active">Disclaimer</span><span data-lang="pt">Aviso Legal</span><span data-lang="tet">Avizu Legál</span>
+        <span data-lang="id">Peringatan Hukum</span></h3>
+        <p><span data-lang="en" class="active">DoctorScript is a documentation tool. It does not provide medical advice or replace clinical judgment.</span><span data-lang="pt">O DoctorScript é uma ferramenta de documentação clínica. Não fornece aconselhamento médico nem substitui o julgamento clínico profissional.</span><span data-lang="tet">DoctorScript maka instrumentu dokumentasaun kliniku. La fornese konsellu médiku no la substitui julgamentu kliniku profisionál.</span>
+        <span data-lang="id">DoctorScript adalah alat dokumentasi klinis. Aplikasi ini tidak memberikan saran medis atau menggantikan penilaian klinis profesional.</span></p>
+      </div>
+    </div>
+
+    <!-- MyHealth -->
+    <div class="app-policy" style="border-left-color: #2A9D8F;">
+      <h2>❤️ MyHealth</h2>
+      <div class="app-sub">
+        <span data-lang="en" class="active">Personal Health Tracker</span>
+        <span data-lang="pt">Rastreador de Saúde Pessoal</span>
+        <span data-lang="tet">Rastreador Saúde Pessoál</span>
+        <span data-lang="id">Pelacak Kesehatan Pribadi</span>
+      </div>
+      <div class="policy-block">
+        <h3><span data-lang="en" class="active">Data Collected</span><span data-lang="pt">Dados Recolhidos</span><span data-lang="tet">Dadus Kole</span>
+        <span data-lang="id">Data yang Dikumpulkan</span></h3>
+        <p><span data-lang="en" class="active">Health metrics, symptoms, and personal medical notes entered by the user. All data is self-reported and stored locally only.</span><span data-lang="pt">Métricas de saúde, sintomas e notas médicas pessoais introduzidas pelo utilizador. Todos os dados são auto-declarados e armazenados apenas localmente.</span><span data-lang="tet">Métriku saúde, sintoma, no nota médika pessoál ne'ebé uzuáriu hatama. Dadus hotu-hotu auto-reportadu no rai lokálmente de'it.</span>
+        <span data-lang="id">Metrik kesehatan, gejala, dan catatan medis pribadi yang dimasukkan oleh pengguna. Semua data dilaporkan sendiri dan hanya disimpan secara lokal.</span></p>
+      </div>
+      <div class="policy-block">
+        <h3><span data-lang="en" class="active">How Data is Stored</span><span data-lang="pt">Como os Dados são Armazenados</span><span data-lang="tet">Oinsá Dadus Rai</span>
+        <span data-lang="id">Bagaimana Data Disimpan</span></h3>
+        <p><span data-lang="en" class="active">All data remains on-device. No health data is ever shared with third parties, health networks, insurers, or any external service.</span><span data-lang="pt">Todos os dados permanecem no dispositivo. Nenhum dado de saúde é alguma vez partilhado com terceiros, redes de saúde, seguradoras ou qualquer serviço externo.</span><span data-lang="tet">Dadus hotu-hotu rai iha dispositivo. Laiha dadus saúde fahe ho terseiru, rede saúde, seguradora, ka serviçu esternu ruma.</span>
+        <span data-lang="id">Semua data tetap berada di perangkat. Tidak ada data kesehatan yang dibagikan kepada pihak ketiga, jaringan kesehatan, asuransi, atau layanan eksternal apa pun.</span></p>
+      </div>
+    </div>
+
+    <!-- Faith Apps -->
+    <div class="app-policy" style="border-left-color: #9B59B6;">
+      <h2>🙏 O Dia Santificado &nbsp;·&nbsp; 🎵 Hananu ba Nai &nbsp;·&nbsp; 📖 Harohan ba Nai</h2>
+      <div class="app-sub">
+        <span data-lang="en" class="active">Catholic Prayer & Song Apps</span>
+        <span data-lang="pt">Apps de Oração e Cânticos Católicos</span>
+        <span data-lang="tet">Apps Orasaun no Kántiku Katóliku</span>
+        <span data-lang="id">Aplikasi Doa & Lagu Katolik</span>
+      </div>
+      <div class="policy-block">
+        <h3><span data-lang="en" class="active">Data Collected</span><span data-lang="pt">Dados Recolhidos</span><span data-lang="tet">Dadus Kole</span>
+        <span data-lang="id">Data yang Dikumpulkan</span></h3>
+        <p><span data-lang="en" class="active">These apps collect no personal data whatsoever. They are read-only content apps — prayer books and hymnals. No accounts, no registration, no user data of any kind.</span><span data-lang="pt">Estas apps não recolhem quaisquer dados pessoais. São apps de conteúdo apenas de leitura — livros de orações e hinários. Sem contas, sem registo, sem dados do utilizador de qualquer tipo.</span><span data-lang="tet">Apps sira-ne'e la kole dadus pessoál ruma. Sira maka apps konteúdu leitura de'it — livru orasaun no koletivu kántiku. Laiha konta, laiha rejistrasaun, laiha dadus uzuáriu ruma.</span>
+        <span data-lang="id">Aplikasi ini sama sekali tidak mengumpulkan data pribadi apa pun. Aplikasi ini adalah aplikasi konten hanya-baca — buku doa dan nyanyian pujian. Tanpa akun, tanpa pendaftaran, tanpa data pengguna dalam bentuk apa pun.</span></p>
+      </div>
+    </div>
+
+    <!-- Phrasebook -->
+    <div class="app-policy" style="border-left-color: #F5A623;">
+      <h2>💬 Multilingual Phrasebook</h2>
+      <div class="app-sub">
+        <span data-lang="en" class="active">EN · PT · Tetum · Indonesian</span>
+        <span data-lang="pt">EN · PT · Tétum · Indonésio</span>
+        <span data-lang="tet">EN · PT · Tétum · Indonéziu</span>
+        <span data-lang="id">EN · PT · Tetum · Indonesia</span>
+      </div>
+      <div class="policy-block">
+        <h3><span data-lang="en" class="active">Data Collected</span><span data-lang="pt">Dados Recolhidos</span><span data-lang="tet">Dadus Kole</span>
+        <span data-lang="id">Data yang Dikumpulkan</span></h3>
+        <p><span data-lang="en" class="active">This app collects no personal data. It is a static reference app containing phrase translations. User language preference is saved locally on the device only.</span><span data-lang="pt">Esta app não recolhe dados pessoais. É uma app de referência estática contendo traduções de frases. A preferência de língua do utilizador é guardada apenas localmente no dispositivo.</span><span data-lang="tet">App ne'e la kole dadus pessoál. Maka app referénsia estátika ne'ebé iha tradusaun fraze. Preferénsia língua uzuáriu nian rai lokálmente de'it iha dispositivo.</span>
+        <span data-lang="id">Aplikasi ini tidak mengumpulkan data pribadi. Ini adalah aplikasi referensi statis yang berisi terjemahan frasa. Preferensi bahasa pengguna hanya disimpan secara lokal di perangkat.</span></p>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="contact-box">
+      <h2>
+        <span data-lang="en" class="active">Privacy Questions?</span>
+        <span data-lang="pt">Dúvidas de Privacidade?</span>
+        <span data-lang="tet">Pergunta Privasidade?</span>
+        <span data-lang="id">Pertanyaan tentang Privasi?</span>
+      </h2>
+      <p>
+        <span data-lang="en" class="active">If you have any questions about how your data is handled, please contact us.</span>
+        <span data-lang="pt">Se tiver alguma dúvida sobre como os seus dados são tratados, entre em contacto connosco.</span>
+        <span data-lang="tet">Se iha pergunta kona-ba oinsá ita-nia dadus trata, kontaktu ami.</span>
+        <span data-lang="id">Jika Anda memiliki pertanyaan tentang bagaimana data Anda ditangani, silakan hubungi kami.</span>
+      </p>
+      <a href="mailto:privacy@timorapps.com">privacy@timorapps.com</a>
+    </div>
+
+  </div>
+
+  <footer>
+    <div>
+      <a href="index.html" class="footer-back">← TimorApps Home</a>
+      <div class="footer-copy">© 2025 TimorApps · Dili, Timor-Leste</div>
+    </div>
+  </footer>
+
+  <script>
+    function setLang(lang) {
+      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+      document.querySelectorAll('[data-lang]').forEach(el => {
+        el.classList.toggle('active', el.dataset.lang === lang);
+      });
+      localStorage.setItem('timorapps-lang', lang);
+    }
+    const savedLang = localStorage.getItem('timorapps-lang') || 'en';
+    setLang(savedLang);
+  </script>
+</body>
+</html>
