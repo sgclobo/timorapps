@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimorApps | Mobile Innovation from Timor-Leste</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fraunces:ital,opsz,wght@0,9..144,700;1,9..144,600&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            scroll-behavior: smooth;
+        }
+
+        .serif { font-family: 'Fraunces', serif; }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #60a5fa 0%, #a855f7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .bg-grid {
+            background-image: radial-gradient(#1e293b 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .glass-card {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            border: 1px solid rgba(96, 165, 250, 0.4);
+            transform: translateY(-8px);
+            background: rgba(30, 41, 59, 0.6);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .lang-btn.active {
+            background: #2563eb;
+            color: white;
+            border-color: #3b82f6;
+        }
+
+        [data-lang] { display: none; }
+        [data-lang].active { display: block; }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Responsive typography */
+        .hero-title { font-size: clamp(2.5rem, 8vw, 4.5rem); }
+    </style>
+</head>
+<body class="bg-grid min-h-screen selection:bg-blue-500/30">
+
+    <!-- Background Decoration -->
+    <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+        <div class="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-blue-500/10 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-purple-500/10 rounded-full blur-[120px]"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 glass-card border-b border-white/5 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="serif text-2xl font-bold flex items-center gap-3 group">
+                <div class="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center transition-transform group-hover:rotate-12">
+                    <i class="fas fa-rocket text-xs text-white"></i>
+                </div>
+                TimorApps
+            </a>
+            
+            <div class="flex items-center gap-6">
+                <div class="hidden md:flex gap-8 text-sm font-semibold text-slate-400">
+                    <a href="#apps" class="hover:text-blue-400 transition-colors">Apps</a>
+                    <a href="#about" class="hover:text-blue-400 transition-colors">About</a>
+                    <a href="privacy.html" class="hover:text-blue-400 transition-colors">Privacy</a>
+                </div>
+                <div class="flex bg-slate-900/90 p-1 rounded-full border border-white/10">
+                    <button onclick="setLang('en')" class="lang-btn px-3 py-1 text-xs rounded-full transition-all active" id="btn-en">EN</button>
+                    <button onclick="setLang('pt')" class="lang-btn px-3 py-1 text-xs rounded-full transition-all" id="btn-pt">PT</button>
+                    <button onclick="setLang('tet')" class="lang-btn px-3 py-1 text-xs rounded-full transition-all" id="btn-tet">TET</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="max-w-5xl mx-auto pt-24 pb-32 px-6 text-center">
+        <div class="inline-flex items-center gap-2 bg-blue-500/10 text-blue-400 px-4 py-2 rounded-full text-xs font-bold mb-8 border border-blue-500/20 tracking-wider uppercase">
+            <span>🇹🇱</span> 
+            <span data-lang="en" class="active">Pioneering Mobile in Timor-Leste</span>
+            <span data-lang="pt">Inovação Móvel em Timor-Leste</span>
+            <span data-lang="tet">Inovasaun Móvel iha Timor-Leste</span>
+        </div>
+        <h1 class="serif hero-title font-extrabold mb-8 leading-tight">
+            <span data-lang="en" class="active">Beautiful apps for <span class="gradient-text">everyday life</span></span>
+            <span data-lang="pt">Apps bonitas para <span class="gradient-text">o dia a dia</span></span>
+            <span data-lang="tet">Apps bonitu ba <span class="gradient-text">moris loron-loron</span></span>
+        </h1>
+        <p class="text-slate-400 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-12">
+            <span data-lang="en" class="active">We build high-quality, privacy-focused mobile experiences for health, faith, and language. Designed in Dili, built for the world.</span>
+            <span data-lang="pt">Criamos experiências móveis de alta qualidade, focadas na privacidade, para saúde, fé e língua.</span>
+            <span data-lang="tet">Ami kria esperiénsia móvel ho kualidade aas, foka ba privasidade ba saúde, fé, no língua.</span>
+        </p>
+        <div class="flex flex-wrap justify-center gap-6">
+            <a href="#apps" class="bg-blue-600 hover:bg-blue-500 px-10 py-5 rounded-2xl font-bold transition-all transform hover:scale-105 shadow-2xl shadow-blue-500/30">
+                Explore Our Collection
+            </a>
+            <a href="mailto:hello@timorapps.com" class="glass-card px-10 py-5 rounded-2xl font-bold hover:bg-white/10">
+                Get in Touch
+            </a>
+        </div>
+    </header>
+
+    <!-- Apps Collection -->
+    <section id="apps" class="max-w-7xl mx-auto py-20 px-6">
+        <div class="text-center mb-16">
+            <h2 class="serif text-4xl font-bold mb-4">Our Apps</h2>
+            <div class="h-1.5 w-20 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- DoctorScript -->
+            <div class="glass-card p-8 rounded-[2rem] flex flex-col">
+                <div class="text-4xl mb-6 bg-orange-500/10 w-16 h-16 flex items-center justify-center rounded-2xl border border-orange-500/20">💊</div>
+                <h3 class="serif text-2xl font-bold mb-3">DoctorScript</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-8 flex-grow">Digital prescription management for medical professionals. Fully offline, professional PDF generation, and secure patient records.</p>
+                <div class="flex gap-2 mb-8">
+                    <span class="text-[10px] uppercase font-black bg-slate-800/80 px-3 py-1 rounded-full border border-white/5">Medical</span>
+                    <span class="text-[10px] uppercase font-black bg-slate-800/80 px-3 py-1 rounded-full border border-white/5">Offline</span>
+                </div>
+                <div class="flex gap-3">
+                    <button class="flex-1 bg-white/5 hover:bg-white/10 py-3 rounded-xl transition-all flex items-center justify-center gap-2 text-xs font-bold"><i class="fab fa-apple"></i> iOS</button>
+                    <button class="flex-1 bg-white/5 hover:bg-white/10 py-3 rounded-xl transition-all flex items-center justify-center gap-2 text-xs font-bold"><i class="fab fa-google-play"></i> Android</button>
+                </div>
+            </div>
+
+            <!-- O Dia Santificado -->
+            <div class="glass-card p-8 rounded-[2rem] flex flex-col">
+                <div class="text-4xl mb-6 bg-purple-500/10 w-16 h-16 flex items-center justify-center rounded-2xl border border-purple-500/20">🙏</div>
+                <h3 class="serif text-2xl font-bold mb-3">O Dia Santificado</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-8 flex-grow">A complete Catholic prayer book in Portuguese. Features the Rosary, daily prayers, and liturgical devotions in the palm of your hand.</p>
+                <div class="flex gap-2 mb-8 text-purple-400">
+                    <span class="text-[10px] uppercase font-black bg-purple-500/10 px-3 py-1 rounded-full">Faith</span>
+                    <span class="text-[10px] uppercase font-black bg-purple-500/10 px-3 py-1 rounded-full">Portuguese</span>
+                </div>
+                <div class="text-xs text-slate-500 italic text-center p-3 border border-white/5 rounded-xl">Available on App Store</div>
+            </div>
+
+            <!-- Hananu ba Nai -->
+            <div class="glass-card p-8 rounded-[2rem] flex flex-col">
+                <div class="text-4xl mb-6 bg-red-500/10 w-16 h-16 flex items-center justify-center rounded-2xl border border-red-500/20">🎵</div>
+                <h3 class="serif text-2xl font-bold mb-3">Hananu ba Nai</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-8 flex-grow">The definitive Catholic hymnal in Tetum. Organized liturgical songs for Mass, community celebrations, and personal reflection.</p>
+                <div class="flex gap-2 mb-8">
+                    <span class="text-[10px] uppercase font-black bg-slate-800 px-3 py-1 rounded-full">Tetum</span>
+                    <span class="text-[10px] uppercase font-black bg-slate-800 px-3 py-1 rounded-full">Music</span>
+                </div>
+                <div class="text-xs text-blue-400 font-bold bg-blue-400/10 py-3 rounded-xl text-center">In Review</div>
+            </div>
+
+            <!-- MyHealth -->
+            <div class="glass-card p-8 rounded-[2rem] flex flex-col">
+                <div class="text-4xl mb-6 bg-emerald-500/10 w-16 h-16 flex items-center justify-center rounded-2xl border border-emerald-500/20">❤️</div>
+                <h3 class="serif text-2xl font-bold mb-3">MyHealth</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-8 flex-grow">Personalized health tracking without the cloud. Log vitals, symptoms, and medical history with 100% on-device privacy.</p>
+                <div class="flex gap-2 mb-8 text-emerald-400">
+                    <span class="text-[10px] uppercase font-black bg-emerald-500/10 px-3 py-1 rounded-full">Health</span>
+                    <span class="text-[10px] uppercase font-black bg-emerald-500/10 px-3 py-1 rounded-full">Private</span>
+                </div>
+                <div class="text-xs text-slate-500 italic text-center py-3">Coming Soon</div>
+            </div>
+
+            <!-- Harohan ba Nai -->
+            <div class="glass-card p-8 rounded-[2rem] flex flex-col">
+                <div class="text-4xl mb-6 bg-blue-500/10 w-16 h-16 flex items-center justify-center rounded-2xl border border-blue-500/20">📖</div>
+                <h3 class="serif text-2xl font-bold mb-3">Harohan ba Nai</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-8 flex-grow">A devotional prayer companion in Tetum. Bringing traditional and liturgical prayers to the heart of Timor-Leste.</p>
+                <div class="flex gap-2 mb-8 text-blue-400">
+                    <span class="text-[10px] uppercase font-black bg-blue-500/10 px-3 py-1 rounded-full">Faith</span>
+                    <span class="text-[10px] uppercase font-black bg-blue-500/10 px-3 py-1 rounded-full">Tetum</span>
+                </div>
+                <div class="text-xs text-blue-400 font-bold bg-blue-400/10 py-3 rounded-xl text-center">In Review</div>
+            </div>
+
+            <!-- Phrasebook -->
+            <div class="glass-card p-8 rounded-[2rem] flex flex-col">
+                <div class="text-4xl mb-6 bg-amber-500/10 w-16 h-16 flex items-center justify-center rounded-2xl border border-amber-500/20">💬</div>
+                <h3 class="serif text-2xl font-bold mb-3">Multilingual Phrasebook</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-8 flex-grow">Bridge the gap between English, Tetum, Portuguese, and Indonesian. Essential phrases for travelers and language learners.</p>
+                <div class="flex gap-2 mb-8 text-amber-400">
+                    <span class="text-[10px] uppercase font-black bg-amber-500/10 px-3 py-1 rounded-full">Language</span>
+                    <span class="text-[10px] uppercase font-black bg-amber-500/10 px-3 py-1 rounded-full">Education</span>
+                </div>
+                <div class="text-xs text-slate-500 italic text-center py-3">Coming Soon</div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 py-20 px-6 mt-20">
+        <div class="max-w-7xl mx-auto flex flex-col items-center">
+            <div class="serif text-3xl font-bold mb-4">TimorApps</div>
+            <p class="text-slate-500 text-sm max-w-md text-center mb-10 leading-relaxed">
+                Building the future of mobile technology in Southeast Asia.
+                Privacy-first, community-driven, resilient.
+            </p>
+            <div class="flex gap-8 mb-10">
+                <a href="privacy.html" class="text-xs font-bold text-slate-400 hover:text-white uppercase tracking-widest transition-colors">Privacy</a>
+                <a href="mailto:hello@timorapps.com" class="text-xs font-bold text-slate-400 hover:text-white uppercase tracking-widest transition-colors">Contact</a>
+                <a href="#about" class="text-xs font-bold text-slate-400 hover:text-white uppercase tracking-widest transition-colors">About</a>
+            </div>
+            <div class="text-[10px] text-slate-600 uppercase tracking-widest">
+                © 2026 TimorApps · Dili, Timor-Leste · All rights reserved
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function setLang(lang) {
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            const btn = document.getElementById('btn-' + lang);
+            if(btn) btn.classList.add('active');
+            
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.classList.toggle('active', el.dataset.lang === lang);
+            });
+            localStorage.setItem('timorapps-lang', lang);
+        }
+
+        const savedLang = localStorage.getItem('timorapps-lang') || 'en';
+        setLang(savedLang);
+    </script>
+</body>
+</html>
